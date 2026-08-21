@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FetchRouteImport } from './routes/fetch'
+import { Route as LogIndRouteImport } from './routes/log-ind'
+import { Route as PriserRouteImport } from './routes/priser'
+import { Route as PrivatlivRouteImport } from './routes/privatliv'
+import { Route as ProfilIdRouteImport } from './routes/profil.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FetchRoute = FetchRouteImport.update({
+  id: '/fetch',
+  path: '/fetch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogIndRoute = LogIndRouteImport.update({
+  id: '/log-ind',
+  path: '/log-ind',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PriserRoute = PriserRouteImport.update({
+  id: '/priser',
+  path: '/priser',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivatlivRoute = PrivatlivRouteImport.update({
+  id: '/privatliv',
+  path: '/privatliv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilIdRoute = ProfilIdRouteImport.update({
+  id: '/profil/$id',
+  path: '/profil/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/fetch': typeof FetchRoute
+  '/log-ind': typeof LogIndRoute
+  '/priser': typeof PriserRoute
+  '/privatliv': typeof PrivatlivRoute
+  '/profil/$id': typeof ProfilIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/fetch': typeof FetchRoute
+  '/log-ind': typeof LogIndRoute
+  '/priser': typeof PriserRoute
+  '/privatliv': typeof PrivatlivRoute
+  '/profil/$id': typeof ProfilIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/fetch': typeof FetchRoute
+  '/log-ind': typeof LogIndRoute
+  '/priser': typeof PriserRoute
+  '/privatliv': typeof PrivatlivRoute
+  '/profil/$id': typeof ProfilIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/fetch' | '/log-ind' | '/priser' | '/privatliv' | '/profil/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/fetch' | '/log-ind' | '/priser' | '/privatliv' | '/profil/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/fetch'
+    | '/log-ind'
+    | '/priser'
+    | '/privatliv'
+    | '/profil/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FetchRoute: typeof FetchRoute
+  LogIndRoute: typeof LogIndRoute
+  PriserRoute: typeof PriserRoute
+  PrivatlivRoute: typeof PrivatlivRoute
+  ProfilIdRoute: typeof ProfilIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fetch': {
+      id: '/fetch'
+      path: '/fetch'
+      fullPath: '/fetch'
+      preLoaderRoute: typeof FetchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/log-ind': {
+      id: '/log-ind'
+      path: '/log-ind'
+      fullPath: '/log-ind'
+      preLoaderRoute: typeof LogIndRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/priser': {
+      id: '/priser'
+      path: '/priser'
+      fullPath: '/priser'
+      preLoaderRoute: typeof PriserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privatliv': {
+      id: '/privatliv'
+      path: '/privatliv'
+      fullPath: '/privatliv'
+      preLoaderRoute: typeof PrivatlivRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil/$id': {
+      id: '/profil/$id'
+      path: '/profil/$id'
+      fullPath: '/profil/$id'
+      preLoaderRoute: typeof ProfilIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FetchRoute: FetchRoute,
+  LogIndRoute: LogIndRoute,
+  PriserRoute: PriserRoute,
+  PrivatlivRoute: PrivatlivRoute,
+  ProfilIdRoute: ProfilIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
