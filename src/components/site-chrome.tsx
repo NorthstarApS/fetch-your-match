@@ -64,19 +64,12 @@ export function SiteFooter() {
   );
 }
 
-const tabs = [
-  { to: "/fetch", label: "Matches", hash: "resultater" },
-  { to: "/fetch", label: "Likes", hash: "likes" },
-  { to: "/fetch", label: "Beskeder", hash: "beskeder" },
-  { to: "/profil/emma", label: "Profil", hash: "" },
-];
-
 export function MobileTabBar() {
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 glass md:hidden">
       <div className="mx-auto grid max-w-md grid-cols-5 items-end px-3 pb-3 pt-2 text-[11px]">
-        <TabLink to={tabs[0].to} label="Matches" />
-        <TabLink to={tabs[1].to} label="Likes" />
+        <TabLink to="/fetch" label="Matches" />
+        <TabLink to="/fetch" label="Likes" />
         <div className="flex justify-center">
           <Link
             to="/fetch"
@@ -86,7 +79,7 @@ export function MobileTabBar() {
             Fetch
           </Link>
         </div>
-        <TabLink to={tabs[2].to} label="Beskeder" badge={3} />
+        <TabLink to="/fetch" label="Beskeder" badge={3} />
         <TabLink to="/profil/$id" params={{ id: "emma" }} label="Profil" />
       </div>
     </nav>
