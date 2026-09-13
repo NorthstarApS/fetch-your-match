@@ -7,6 +7,15 @@ const navItems = [
   { to: "/privatliv", label: "Privatliv" },
 ];
 
+const seoNavItems = [
+  { to: "/find-singler", label: "Find singler" },
+  { to: "/soeg-efter-et-match", label: "Søg efter et match" },
+  { to: "/dating-uden-swipe", label: "Dating uden swipe" },
+  { to: "/find-en-der-passer-til-dig", label: "Find en der passer" },
+  { to: "/datingsogning", label: "Datingsøgning" },
+  { to: "/soeg-med-en-bedre-profil", label: "Bedre profil" },
+] as const;
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 glass">
@@ -49,15 +58,24 @@ export function SiteFooter() {
             findes.
           </p>
         </div>
-        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-          {navItems.map((i) => (
-            <Link key={i.to} to={i.to} className="transition-colors hover:text-foreground">
-              {i.label}
+        <div className="flex flex-col gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {navItems.map((i) => (
+              <Link key={i.to} to={i.to} className="transition-colors hover:text-foreground">
+                {i.label}
+              </Link>
+            ))}
+            <Link to="/log-ind" className="transition-colors hover:text-foreground">
+              Log ind
             </Link>
-          ))}
-          <Link to="/log-ind" className="transition-colors hover:text-foreground">
-            Log ind
-          </Link>
+          </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {seoNavItems.map((i) => (
+              <Link key={i.to} to={i.to} className="transition-colors hover:text-foreground">
+                {i.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

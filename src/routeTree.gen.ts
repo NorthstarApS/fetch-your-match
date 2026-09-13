@@ -10,10 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DatingUdenSwipeRouteImport } from './routes/dating-uden-swipe'
+import { Route as DatingsogningRouteImport } from './routes/datingsogning'
 import { Route as FetchRouteImport } from './routes/fetch'
+import { Route as FindEnDerPasserTilDigRouteImport } from './routes/find-en-der-passer-til-dig'
+import { Route as FindSinglerRouteImport } from './routes/find-singler'
 import { Route as LogIndRouteImport } from './routes/log-ind'
 import { Route as PriserRouteImport } from './routes/priser'
 import { Route as PrivatlivRouteImport } from './routes/privatliv'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SoegEfterEtMatchRouteImport } from './routes/soeg-efter-et-match'
+import { Route as SoegMedEnBedreProfilRouteImport } from './routes/soeg-med-en-bedre-profil'
 import { Route as ProfilIdRouteImport } from './routes/profil.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -21,9 +28,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DatingUdenSwipeRoute = DatingUdenSwipeRouteImport.update({
+  id: '/dating-uden-swipe',
+  path: '/dating-uden-swipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatingsogningRoute = DatingsogningRouteImport.update({
+  id: '/datingsogning',
+  path: '/datingsogning',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FetchRoute = FetchRouteImport.update({
   id: '/fetch',
   path: '/fetch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindEnDerPasserTilDigRoute = FindEnDerPasserTilDigRouteImport.update({
+  id: '/find-en-der-passer-til-dig',
+  path: '/find-en-der-passer-til-dig',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindSinglerRoute = FindSinglerRouteImport.update({
+  id: '/find-singler',
+  path: '/find-singler',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LogIndRoute = LogIndRouteImport.update({
@@ -41,6 +68,21 @@ const PrivatlivRoute = PrivatlivRouteImport.update({
   path: '/privatliv',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoegEfterEtMatchRoute = SoegEfterEtMatchRouteImport.update({
+  id: '/soeg-efter-et-match',
+  path: '/soeg-efter-et-match',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoegMedEnBedreProfilRoute = SoegMedEnBedreProfilRouteImport.update({
+  id: '/soeg-med-en-bedre-profil',
+  path: '/soeg-med-en-bedre-profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfilIdRoute = ProfilIdRouteImport.update({
   id: '/profil/$id',
   path: '/profil/$id',
@@ -49,51 +91,111 @@ const ProfilIdRoute = ProfilIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dating-uden-swipe': typeof DatingUdenSwipeRoute
+  '/datingsogning': typeof DatingsogningRoute
   '/fetch': typeof FetchRoute
+  '/find-en-der-passer-til-dig': typeof FindEnDerPasserTilDigRoute
+  '/find-singler': typeof FindSinglerRoute
   '/log-ind': typeof LogIndRoute
   '/priser': typeof PriserRoute
   '/privatliv': typeof PrivatlivRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/soeg-efter-et-match': typeof SoegEfterEtMatchRoute
+  '/soeg-med-en-bedre-profil': typeof SoegMedEnBedreProfilRoute
   '/profil/$id': typeof ProfilIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dating-uden-swipe': typeof DatingUdenSwipeRoute
+  '/datingsogning': typeof DatingsogningRoute
   '/fetch': typeof FetchRoute
+  '/find-en-der-passer-til-dig': typeof FindEnDerPasserTilDigRoute
+  '/find-singler': typeof FindSinglerRoute
   '/log-ind': typeof LogIndRoute
   '/priser': typeof PriserRoute
   '/privatliv': typeof PrivatlivRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/soeg-efter-et-match': typeof SoegEfterEtMatchRoute
+  '/soeg-med-en-bedre-profil': typeof SoegMedEnBedreProfilRoute
   '/profil/$id': typeof ProfilIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dating-uden-swipe': typeof DatingUdenSwipeRoute
+  '/datingsogning': typeof DatingsogningRoute
   '/fetch': typeof FetchRoute
+  '/find-en-der-passer-til-dig': typeof FindEnDerPasserTilDigRoute
+  '/find-singler': typeof FindSinglerRoute
   '/log-ind': typeof LogIndRoute
   '/priser': typeof PriserRoute
   '/privatliv': typeof PrivatlivRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/soeg-efter-et-match': typeof SoegEfterEtMatchRoute
+  '/soeg-med-en-bedre-profil': typeof SoegMedEnBedreProfilRoute
   '/profil/$id': typeof ProfilIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/fetch' | '/log-ind' | '/priser' | '/privatliv' | '/profil/$id'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/fetch' | '/log-ind' | '/priser' | '/privatliv' | '/profil/$id'
-  id:
-    | '__root__'
     | '/'
+    | '/dating-uden-swipe'
+    | '/datingsogning'
     | '/fetch'
+    | '/find-en-der-passer-til-dig'
+    | '/find-singler'
     | '/log-ind'
     | '/priser'
     | '/privatliv'
+    | '/sitemap.xml'
+    | '/soeg-efter-et-match'
+    | '/soeg-med-en-bedre-profil'
+    | '/profil/$id'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/dating-uden-swipe'
+    | '/datingsogning'
+    | '/fetch'
+    | '/find-en-der-passer-til-dig'
+    | '/find-singler'
+    | '/log-ind'
+    | '/priser'
+    | '/privatliv'
+    | '/sitemap.xml'
+    | '/soeg-efter-et-match'
+    | '/soeg-med-en-bedre-profil'
+    | '/profil/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/dating-uden-swipe'
+    | '/datingsogning'
+    | '/fetch'
+    | '/find-en-der-passer-til-dig'
+    | '/find-singler'
+    | '/log-ind'
+    | '/priser'
+    | '/privatliv'
+    | '/sitemap.xml'
+    | '/soeg-efter-et-match'
+    | '/soeg-med-en-bedre-profil'
     | '/profil/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DatingUdenSwipeRoute: typeof DatingUdenSwipeRoute
+  DatingsogningRoute: typeof DatingsogningRoute
   FetchRoute: typeof FetchRoute
+  FindEnDerPasserTilDigRoute: typeof FindEnDerPasserTilDigRoute
+  FindSinglerRoute: typeof FindSinglerRoute
   LogIndRoute: typeof LogIndRoute
   PriserRoute: typeof PriserRoute
   PrivatlivRoute: typeof PrivatlivRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SoegEfterEtMatchRoute: typeof SoegEfterEtMatchRoute
+  SoegMedEnBedreProfilRoute: typeof SoegMedEnBedreProfilRoute
   ProfilIdRoute: typeof ProfilIdRoute
 }
 
@@ -106,11 +208,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dating-uden-swipe': {
+      id: '/dating-uden-swipe'
+      path: '/dating-uden-swipe'
+      fullPath: '/dating-uden-swipe'
+      preLoaderRoute: typeof DatingUdenSwipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datingsogning': {
+      id: '/datingsogning'
+      path: '/datingsogning'
+      fullPath: '/datingsogning'
+      preLoaderRoute: typeof DatingsogningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fetch': {
       id: '/fetch'
       path: '/fetch'
       fullPath: '/fetch'
       preLoaderRoute: typeof FetchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/find-en-der-passer-til-dig': {
+      id: '/find-en-der-passer-til-dig'
+      path: '/find-en-der-passer-til-dig'
+      fullPath: '/find-en-der-passer-til-dig'
+      preLoaderRoute: typeof FindEnDerPasserTilDigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/find-singler': {
+      id: '/find-singler'
+      path: '/find-singler'
+      fullPath: '/find-singler'
+      preLoaderRoute: typeof FindSinglerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/log-ind': {
@@ -134,6 +264,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivatlivRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/soeg-efter-et-match': {
+      id: '/soeg-efter-et-match'
+      path: '/soeg-efter-et-match'
+      fullPath: '/soeg-efter-et-match'
+      preLoaderRoute: typeof SoegEfterEtMatchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/soeg-med-en-bedre-profil': {
+      id: '/soeg-med-en-bedre-profil'
+      path: '/soeg-med-en-bedre-profil'
+      fullPath: '/soeg-med-en-bedre-profil'
+      preLoaderRoute: typeof SoegMedEnBedreProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profil/$id': {
       id: '/profil/$id'
       path: '/profil/$id'
@@ -146,10 +297,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DatingUdenSwipeRoute: DatingUdenSwipeRoute,
+  DatingsogningRoute: DatingsogningRoute,
   FetchRoute: FetchRoute,
+  FindEnDerPasserTilDigRoute: FindEnDerPasserTilDigRoute,
+  FindSinglerRoute: FindSinglerRoute,
   LogIndRoute: LogIndRoute,
   PriserRoute: PriserRoute,
   PrivatlivRoute: PrivatlivRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SoegEfterEtMatchRoute: SoegEfterEtMatchRoute,
+  SoegMedEnBedreProfilRoute: SoegMedEnBedreProfilRoute,
   ProfilIdRoute: ProfilIdRoute,
 }
 export const routeTree = rootRouteImport
