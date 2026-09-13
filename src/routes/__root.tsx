@@ -77,14 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "MatchFetch – find dem, du faktisk leder efter" },
+      {
+        name: "description",
+        content:
+          "Beskriv dit match. FETCH finder relevante profiler på Datez-netværket. Ikke DNA. Ikke swipe-først.",
+      },
+      { name: "author", content: "MatchFetch" },
+      { property: "og:title", content: "MatchFetch – find dem, du faktisk leder efter" },
+      {
+        property: "og:description",
+        content: "Beskriv dit match. Vi finder de profiler, der passer bedst.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "da_DK" },
+      { property: "og:site_name", content: "MatchFetch" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -102,7 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="da">
       <head>
         <HeadContent />
       </head>
