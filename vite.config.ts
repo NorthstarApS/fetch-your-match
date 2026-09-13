@@ -35,18 +35,23 @@ export default defineConfig({
       enabled: true,
       host: "https://matchfetch.com",
     },
-    pages: marketingPages.map((path) => ({
-      path,
-      prerender: { enabled: true },
-      sitemap: {
-        changefreq: "weekly" as const,
-        priority:
-          path === "/fetch"
-            ? 0.9
-            : path.startsWith("/find") || path.includes("soeg") || path.includes("dating")
-              ? 0.8
-              : 0.6,
-      },
-    })),
+    pages: [
+      ...marketingPages.map((path) => ({
+        path,
+        prerender: { enabled: true },
+        sitemap: {
+          changefreq: "weekly" as const,
+          priority:
+            path === "/fetch"
+              ? 0.9
+              : path.startsWith("/find") || path.includes("soeg") || path.includes("dating")
+                ? 0.8
+                : 0.6,
+        },
+      })),
+      // Home is still a placeholder; demo profiles are not indexable marketing URLs.
+      { path: "/", prerender: { enabled: true }, sitemap: { exclude: true } },
+      { path: "/profil/emma", prerender: { enabled: false }, sitemap: { exclude: true } },
+    ],
   },
 });
